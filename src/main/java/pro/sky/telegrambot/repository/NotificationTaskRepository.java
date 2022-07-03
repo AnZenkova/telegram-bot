@@ -3,6 +3,10 @@ package pro.sky.telegrambot.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import pro.sky.telegrambot.data.NotificationTask;
 
-public interface NotificationTaskRepository extends JpaRepository<NotificationTask, Long> {
+import java.time.LocalDateTime;
+import java.util.Collection;
 
+public interface NotificationTaskRepository extends JpaRepository<NotificationTask, Integer> {
+
+    public Collection<NotificationTask> getNotificationTaskByDateTime(LocalDateTime now);
 }

@@ -5,33 +5,39 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Entity
-@Table(name = "notification_task", schema = "public")
+@Table(name = "notificationtask")
 public class NotificationTask {
 
 
     @Id
-    @GeneratedValue
-    private Long key;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int key;
+
+    @Column(name = "idchar")
     private Long idChar;
+
     private String text;
+
+    @Column(name = "datetime")
     private LocalDateTime dateTime;
 
-    public NotificationTask(Long key, Long idChar, String text, LocalDateTime dateTime) {
+    public NotificationTask(Long idChar, String text, LocalDateTime dateTime) {
         this.key = key;
         this.idChar = idChar;
         this.text = text;
         this.dateTime = dateTime;
+        key++;
     }
 
     public NotificationTask() {
 
     }
 
-    public Long getKey() {
+    public Integer getKey() {
         return key;
     }
 
-    public void setKey(Long key) {
+    public void setKey(Integer key) {
         this.key = key;
     }
 

@@ -82,7 +82,7 @@ public class TelegramBotUpdatesListener implements UpdatesListener {
 
     @Scheduled(cron = "0 0/1 * * * *")
     public Collection<NotificationTask> run() {
-        return notificationTaskRepository.findNotificationTaskByDateTime(LocalDateTime.now().truncatedTo(ChronoUnit.MINUTES));
+        return notificationTaskRepository.findByDateTime(LocalDateTime.now().truncatedTo(ChronoUnit.MINUTES));
     }
 
     private Collection<String> printText(Collection<NotificationTask> coincidence) {
